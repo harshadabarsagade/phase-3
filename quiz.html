@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz App</title>
+<link rel="stylesheet" href="quiz.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<!-- ========== LOGIN PAGE ========== -->
+<div id="loginPage" class="login-container">
+
+  <div class="login-left">
+    <h1>🧠 Quiz Login</h1>
+
+    <input type="text" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="loginUser()">Login</button>
+
+    <p id="loginError" style="color:red;"></p>
+  </div>
+
+  <div class="login-right">
+    <img src="https://img.freepik.com/premium-vector/woman-operating-laptop-with-coffee-cartoon-vector-illustration-people-technology-concept-isolated-flat-cartoon-style_138676-1869.jpg" alt="img">
+  </div>
+
+</div>
+
+<!-- ========== QUIZ PAGE ========== -->
+<div id="quizPage" class="quiz-card" style="display:none;">
+
+  <div class="quiz-header">
+    <h1>Quiz App</h1>
+
+    <div class="header-buttons">
+      <button id="themeToggle">Theme</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- CATEGORY -->
+  <div class="quiz-controls">
+    <select id="category" class="category-select">
+      <option value="javascript">JavaScript</option>
+      <option value="science">Science</option>
+      <option value="history">History</option>
+    </select>
+
+    <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <!-- QUESTION -->
+  <div class="question-container">
+    <h2 id="question">Question will appear here</h2>
+  </div>
+
+  <!-- OPTIONS -->
+  <div id="options" class="options-container"></div>
+
+  <!-- STATUS -->
+  <div class="status-bar">
+    <div id="timer">Time Left: 30</div>
+
+    <div class="timer-wrapper">
+      <div id="timerBar" class="timer-bar"></div>
+    </div>
+
+    <div id="score">Score: 0</div>
+  </div>
+
+  <!-- NEXT BUTTON -->
+  <div class="next-wrapper">
+    <button class="next-btn" onclick="nextQuestion()">Next</button>
+  </div>
+
+</div>
+
+<!-- ========== RESULT PAGE ========== -->
+<div id="resultPage" class="result-card" style="display:none;">
+
+  <h1>🎉 Result</h1>
+
+  <h2 id="finalScore">Score</h2>
+
+  <button onclick="showLeaderboard()">Leaderboard</button>
+  <button onclick="showCertificate()">Certificate</button>
+  <button onclick="location.reload()">Restart</button>
+
+  <button onclick="backToQuiz()">Back</button>
+
+</div>
+
+<!-- ========== CERTIFICATE PAGE ========== -->
+<div id="certificatePage" class="certificate" style="display:none;">
+
+  <h1>🏆 Certificate</h1>
+
+  <h2 id="certName"></h2>
+  <h3 id="certScore"></h3>
+
+  <button onclick="downloadPDF()">Download PDF</button>
+  <button onclick="backToResult()">Back</button>
+
+</div>
+
+<!-- ========== LEADERBOARD PAGE ========== -->
+<div id="leaderboardPage" class="leaderboard-card" style="display:none;">
+
+  <h1>🏅 Leaderboard</h1>
+
+  <ul id="leaderboardList"></ul>
+
+  <button onclick="backToResult()">Back</button>
+
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>
